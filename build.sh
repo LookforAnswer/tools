@@ -1,15 +1,16 @@
 #!/bin/bash
 
+#!/bin/sh
+echo update source code...
+git branch
+git pull
+
 APP_NAME=tools-0.0.1-SNAPSHOT.jar
 
 echo start package
 
 mvn install package -Dmaven.test.skip=true
 
-#!/bin/sh
-echo update source code...
-git branch
-git pull
 
 echo stop application...
 
