@@ -27,4 +27,4 @@ cd target
 
 nohup java -jar $APP_NAME > /dev/null 2>&1 &
 
-tail -f nohup.out
+tail -f /data0/www/apps/tools/nohup.out
