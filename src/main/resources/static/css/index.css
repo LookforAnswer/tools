@@ -1,0 +1,10 @@
+.content{
+    with:960px;
+    margin:0px auto;
+}
+
+.every-row {
+    margin-bottom: 20px;
+    clear:both;
+    padding-left: 15px;
+}

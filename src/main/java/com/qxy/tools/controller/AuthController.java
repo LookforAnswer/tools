@@ -45,7 +45,7 @@ public class AuthController {
         return DigestUtils.md5Hex(codeBuilder.toString());
     }
 
-    @GetMapping
+    @GetMapping("/getAuthByAppkeyAndSecret")
     @ResponseBody
     public JSONObject getAuthByAppkeyAndSecret(@RequestParam("appKey") String appKey,
                                                @RequestParam("secret") String secret) {

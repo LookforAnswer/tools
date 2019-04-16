@@ -2,13 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="../js/vue/vue.js"></script>
-    <title>Title</title>
+
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../css/index.css" rel="stylesheet"/>
+
+    <script src="../jquery-1.12.4.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+
+            $("#generate_btn").click(function(){
+
+                var params = {};
+                params["secret"] = $("#secret").val();
+                params["appKey"] = $("#appKey").val();
+                $.get("/auth/getAuthByAppkeyAndSecret",params, function(result){
+                    $("#result").text(JSON.stringify(result, null, 3));
+                });
+            });
+        })
+    </script>
+
+    <title>验签相关</title>
 </head>
 <body>
-    <div id="app">
-        {{ message }}
+    <div class="content">
+        <div>
+            <div class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <span>appKey</span>
+                    <input type="text" class="form-control" id="appKey" placeholder="appKey">
+                </div>
+                <div class="form-group">
+                    <span>secret</span>
+                    <input type="text" class="form-control" id="secret" placeholder="secret">
+                </div>
+                <div type="submit" class="btn btn-default" id="generate_btn">生成</div>
+            </div>
+        </div>
+
+        <div class="every-row">
+            <span style="vertical-align: top;display: inline-block;">结果：</span>
+            <pre style="width:600px;min-height:200px; display:inline-block;" id="result"></pre>
+        </div>
     </div>
-    <script src="../js/index.js"></script>
 </body>
 </html>
