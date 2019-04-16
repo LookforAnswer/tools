@@ -18,7 +18,7 @@
                 params["secret"] = $("#secret").val();
                 params["appKey"] = $("#appKey").val();
                 $.get("/auth/getAuthByAppkeyAndSecret",params, function(result){
-                    $("#result").text(JSON.stringify(result, null, 3));
+                    $("#result").text(JSON.stringify(result, null, 4));
                 });
             });
         })
