@@ -30,4 +30,4 @@ echo start application...
 
 nohup java -jar $APP_NAME &
 
-tail -f /data0/www/apps/tools/nohup.out
+tail -f /data0/www/apps/tools/target/nohup.out
