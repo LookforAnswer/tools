@@ -1,26 +1,6 @@
 #!/bin/bash
 
-echo update source code...
-git branch
-git pull
 
-echo stop application...
-
-PID=$(ps -ef | grep tools-0.0.1-SNAPSHOT.jar | grep -v grep | awk '{ print $2 }')
-if [ -z "$PID" ]
-then
-    echo application is already stopped.
-else
-    echo killing $PID.
-    kill $PID
-    echo done.
-fi
-
-echo package application...
-
-mvn -U -T 1C clean package
-
-echo start application...
 
 
 #这里可替换为你自己的执行程序，其他代码无需更改
@@ -65,6 +45,8 @@ stop(){
 
 #输出运行状态
 status(){
+  mvn -U -T 1C clean package
+
   is_exist
   if [ $? -eq "0" ]; then
     echo "${APP_NAME} is running. Pid is ${pid}"
