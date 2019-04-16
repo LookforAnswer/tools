@@ -1,6 +1,10 @@
 #!/bin/bash
 
-APP_NAME=tools-0.0.1-SNAPSHOT
+APP_NAME=tools-0.0.1-SNAPSHOT.jar
+
+each start package
+
+mvn -U -T 1C -Pdev clean package -pl $APP_NAME -am
 
 #!/bin/sh
 echo update source code...
@@ -9,7 +13,7 @@ git pull
 
 echo stop application...
 
-PID=$(ps -ef | grep $APP_NAME.jar | grep -v grep | awk '{ print $2 }')
+PID=$(ps -ef | grep $APP_NAME | grep -v grep | awk '{ print $2 }')
 if [ -z "$PID" ]
 then
     echo application is already stopped.
@@ -19,13 +23,9 @@ else
     echo done.
 fi
 
-echo package application...
-
-mvn clean package
+cd target
 
 echo start application...
-
-cd target
 
 nohup java -jar $APP_NAME > /dev/null 2>&1 &
 
