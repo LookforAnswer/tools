@@ -1,5 +1,7 @@
 #!/bin/bash
 
+APP_NAME=tools-0.0.1-SNAPSHOT
+
 #!/bin/sh
 echo update source code...
 git branch
@@ -7,7 +9,7 @@ git pull
 
 echo stop application...
 
-PID=$(ps -ef | grep tools-0.0.1-SNAPSHOT.jar | grep -v grep | awk '{ print $2 }')
+PID=$(ps -ef | grep $APP_NAME.jar | grep -v grep | awk '{ print $2 }')
 if [ -z "$PID" ]
 then
     echo application is already stopped.
