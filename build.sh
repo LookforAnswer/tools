@@ -17,7 +17,7 @@ fi
 
 echo package application...
 
-mvn -U -T 1C clean package -pl tools -am
+mvn -U -T 1C clean package
 
 echo start application...
 
