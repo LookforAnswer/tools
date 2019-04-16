@@ -4,7 +4,7 @@ APP_NAME=tools-0.0.1-SNAPSHOT.jar
 
 echo start package
 
-mvn -U -T 1C clean package -pl $APP_NAME -am
+mvn install package -Dmaven.test.skip=true
 
 #!/bin/sh
 echo update source code...
