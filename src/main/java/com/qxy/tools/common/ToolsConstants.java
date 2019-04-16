@@ -11,5 +11,7 @@ public class ToolsConstants {
 
     public static final String UNDERLINE = "_";
 
+    public static final String HYPHEN = "-";
+
     public static final String EMPYT_STRING = "";
 }

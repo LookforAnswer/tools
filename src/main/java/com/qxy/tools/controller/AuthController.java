@@ -59,7 +59,7 @@ public class AuthController {
         Long timestamp = System.currentTimeMillis();
         result.put("timestamp", timestamp);
         result.put("signCode", encode(appKey, secret, timestamp));
-        result.put("traceId", UUID.randomUUID().toString().replaceAll(ToolsConstants.UNDERLINE, ToolsConstants.EMPYT_STRING));
+        result.put("traceId", UUID.randomUUID().toString().replaceAll(ToolsConstants.HYPHEN, ToolsConstants.EMPYT_STRING));
         return result;
     }
 }
