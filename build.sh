@@ -31,7 +31,7 @@ start(){
   else
     nohup java -jar $APP_NAME > /dev/null 2>&1 &
   fi
-  echo "${APP_NAME} is started"
+  tail -f nohup.out
 }
 
 #停止方法
