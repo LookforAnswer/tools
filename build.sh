@@ -27,6 +27,6 @@ cd target
 
 echo start application...
 
-nohup java -jar $APP_NAME > /dev/null 2>&1 &
+nohup java -jar $APP_NAME &
 
 tail -f /data0/www/apps/tools/nohup.out
