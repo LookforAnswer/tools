@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.UUID;
 
 /**
@@ -53,13 +54,20 @@ public class AuthController {
     @GetMapping("/getAuthByAppkeyAndSecret")
     @ResponseBody
     public JSONObject getAuthByAppkeyAndSecret(@RequestParam("appKey") String appKey,
-                                               @RequestParam("secret") String secret) {
+                                               @RequestParam("secret") String secret,
+                                               @RequestParam(value = "timestamp",required = false) Long timestamp) {
         JSONObject result = new JSONObject();
         result.put("appKey", appKey);
-        Long timestamp = System.currentTimeMillis();
+        if (timestamp == null){
+            timestamp = System.currentTimeMillis();
+        }
         result.put("timestamp", timestamp);
         result.put("signCode", encode(appKey, secret, timestamp));
         result.put("traceId", UUID.randomUUID().toString().replaceAll(ToolsConstants.HYPHEN, ToolsConstants.EMPYT_STRING));
         return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(System.currentTimeMillis());
     }
 }
