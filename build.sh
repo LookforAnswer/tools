@@ -9,7 +9,7 @@ APP_NAME=tools-0.0.1-SNAPSHOT.jar
 
 echo start package
 
-mvn install package -Dmaven.test.skip=true
+mvn clean install package -Dmaven.test.skip=true
 
 
 echo stop application...
