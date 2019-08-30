@@ -1,2 +1,6 @@
 server:
   port: 4321
+
+spring:
+  thymeleaf:
+    cache: false
