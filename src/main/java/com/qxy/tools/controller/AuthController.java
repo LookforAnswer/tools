@@ -3,6 +3,7 @@ package com.qxy.tools.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.qxy.tools.common.ToolsConstants;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping("/auth")
+@ConditionalOnProperty(prefix = "parent-name",name = "name")
 public class AuthController {
 
     @RequestMapping("page")
